@@ -1,6 +1,6 @@
 # IOT and Python Projects
 
-![alt text](images/img.png)
+![alt text](https://github.com/chalendony/iot/blob/master/images/collecting-hardware.png)
 
 ## Directory Sturcture
 
