@@ -1,7 +1,9 @@
-# IOT Projects
+# IOT Projects with Raspberry Pi
 
-## Directory Sturcture
+![alt text](https://github.com/chalendony/iot/blob/master/images/collecting-hardware.png)
 
-sophia : voice control 
+/raspberry-setup
 
-htsensor : heat and temperature sensor
+/sophia : voice control 
+
+/htsensor : heat and temperature sensor
