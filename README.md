@@ -1,4 +1,6 @@
-# IOT Projects
+# IOT and Python Projects
+
+![alt text](images/img.png)
 
 ## Directory Sturcture
 
