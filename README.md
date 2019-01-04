@@ -4,6 +4,4 @@
 
 /raspberry-setup
 
-/sophia : voice control 
-
 /htsensor : heat and temperature sensor
