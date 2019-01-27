@@ -59,7 +59,7 @@ Part 5) Future Work
 #### C. Comparative Analysis:  Univariate Models for Forecasting 
   
 
-![alt text](https://doi.org/10.1371/journal.pone.0194889.g002)
+![alt text](https://github.com/chalendony/iot-htsensor/blob/master/images/journal.pone.0194889.g002.PNG)
 
 
 ## PART 3: Explore and Understand Data
