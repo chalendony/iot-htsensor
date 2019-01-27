@@ -2,4 +2,4 @@ iot-htsensor-env/
 .ipynb_checkpoints/
 /data/temp_heat.csv
 /data/produkt_tu_stunde_19510101_20171231_00662.txt
-.idea/
+.idea
