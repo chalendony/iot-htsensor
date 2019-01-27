@@ -15,10 +15,12 @@ Part 3) Understand Characteristics of Humidity and Temperature (HT) Data
 
 Part 4) Analytics: Forecasting and Predicting 
 
-Part 5) Future Work
+Part 5) Next Steps
 
-* performance evaluation 
-
+* search optimal parameters
+* performance evaluation - inputs data set treated consistently
+* de-season data and implement statistical models that require seasonality to be removed
+ 
  
  Make predictions with heat and temperature data using both classic Statistics and Machine Learning algorithms 
 
