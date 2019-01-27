@@ -3,3 +3,4 @@ iot-htsensor-env/
 /data/temp_heat.csv
 /data/produkt_tu_stunde_19510101_20171231_00662.txt
 .idea
+.DS_Store
