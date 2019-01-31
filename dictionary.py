@@ -13,3 +13,4 @@ print(cities['valencia'])
 # note that the key torino is not present in the dictionary, and it will have the default value OTHER
 print(cities['torino'])
 
+
