@@ -1,0 +1,24 @@
+    # invoke update function get new values of x and y then relayout 
+    updatemenus = list([
+    dict(
+         buttons=list([   
+             
+            dict(label = 'Temperature',
+                 method = 'update',
+                 args = [{'visible': [True, False]},
+                         {'title': 'Temperature'}]),
+           
+             dict(label = 'Humidity',
+                 method = 'update',
+                 args = [{'visible': [False, True]},
+                         {'title': 'Humidity'}])
+        ]),
+        direction = 'down',
+        pad = {'r': 10, 't': 10},
+        showactive = True,
+        #x = 0.1,
+        xanchor = 'left',
+        #y = 1.1,
+        yanchor = 'top' 
+    )
+])

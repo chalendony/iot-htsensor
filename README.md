@@ -32,16 +32,25 @@ Part 5) Next Steps
 
 #### C. install requirements
 
+Installing Plotly
+Use Jupyter Notebook ()not sure if it works with Jupyter Lab)
+https://github.com/plotly/plotly.py#installation
+shut down kernels and restart jupyter notebook
+
+Troubleshooting
+Plotly jupyter notebook --NotebookApp.iopub_data_rate_limit=1.0e10
+Trusted Mode
+
+
+
 #### D. test setup
 
 
 ## PART 2. Modeling Time Series Data
 
 
-#### A. Characteristics of Time Series Data
+#### A. Characteristics and Models for Time Series Data
 
-
-#### B. Models for Time Series Data
 
 
 | Model                                                                              | Type  | Seasonality | Trend | 
@@ -58,7 +67,7 @@ Part 5) Next Steps
 | Simple Exponential Smoothing (SES)                                                    | uni   | n           | n     | 
 | Holt Winter’s Exponential Smoothing (HWES)                                            | uni   | y           | y     | 
 
-#### C. Comparative Analysis:  Univariate Models for Forecasting 
+#### B. Comparative Analysis:  Univariate Models for Forecasting 
   
 
 ![alt text](https://github.com/chalendony/iot-htsensor/blob/master/images/journal.pone.0194889.g002.PNG)
