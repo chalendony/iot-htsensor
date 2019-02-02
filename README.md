@@ -41,8 +41,6 @@ Troubleshooting
 Plotly jupyter notebook --NotebookApp.iopub_data_rate_limit=1.0e10
 Trusted Mode
 
-
-
 #### D. test setup
 
 
@@ -67,10 +65,15 @@ Trusted Mode
 | Simple Exponential Smoothing (SES)                                                    | uni   | n           | n     | 
 | Holt Winter’s Exponential Smoothing (HWES)                                            | uni   | y           | y     | 
 
-#### B. Comparative Analysis:  Univariate Models for Forecasting 
+#### B. Univariate Models for Forecasting 
   
 
 ![alt text](https://github.com/chalendony/iot-htsensor/blob/master/images/journal.pone.0194889.g002.PNG)
+
+
+#### C. Multivariate Models for Forecasting
+
+In many applications, such as Electricity Dataset, you have many similar time series across a set of cross-sectional units. For this type of application, you can benefit from training a single model jointly over all of the time serie - when dataset contains hundreds of related time series, the standard ARIMA and ETS methods may not be the best approach.
 
 
 ## PART 3: Explore and Understand Data
