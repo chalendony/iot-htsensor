@@ -9,14 +9,11 @@ Outline:
 
 Part 1) Setting up Your Python Environment
 
-Part 2) Considerations : Time Series Analytics
+Part 2) Modeling Time Series Data
 
-Part 3) Understand Characteristics of Humidity and Temperature (HT) Data
+Part 3) Analytics: Forecasting and Predicting 
 
-Part 4) Analytics: Forecasting and Predicting 
-
-Part 5) Next Steps
-
+TODO:
 * search optimal parameters
 * performance evaluation - inputs data set treated consistently
 * de-season data and implement statistical models that require seasonality to be removed
