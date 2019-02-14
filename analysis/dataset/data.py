@@ -1,8 +1,10 @@
 import numpy as np
 import pandas as pd
+import datetime
+from numpy import array
 
 
-def braun():
+def braunschweig():
     # read column headings
     with open('/Users/stewarta/repos/iot-htsensor/data/columns.txt') as f:
         cols = f.readlines()
@@ -26,45 +28,35 @@ def braun():
     return home
 
 
-def dwd(start, end, url):
+def deutsches_wetter_dienst(start, end, url):
     '''
-    Retrieves temperature and Humidy reading from Deutsch Wetter Dienst (DWD)
-    :param start: first start
+    Read and clean data from provided by Deutsches Wetter Deinst.
+    :param start: first year
     :param end: last year
-    :return: dataframe  humidity and temperature observations
+    :param step: timestep for resampling
+    :param url: location data
+    :return:
     '''
 
-    # parse the DWD dataset and convert date and align with home readings
-    # Format dwd: yyyymmddhh
     df = pd.read_csv(url, sep=';')
-    # select relevant columns
-    df = df[['MESS_DATUM', 'TT_TU', 'RF_TU']]
-    # rename
-    df.rename(columns={'TT_TU': 'Temp', 'RF_TU': 'Humi'}, inplace=True)
 
     # parse date
     df.insert(2, 'datetime', pd.to_datetime(df['MESS_DATUM'], errors='coerce', format='%Y%m%d%H'))
 
-    # humidity can not be less than 0
-    outliers = df[df.Humi < 0].index
-    df.drop(outliers, axis=0, inplace=True)
-    df.dropna(axis=0, inplace=True)
-
-    # fill in missing values
-    df[['Temp', 'Humi']] = df[['Temp', 'Humi']].fillna(df.mean())
-
-    # something is not working with fillna
-    df.dropna(axis=0, inplace=True)
-
     # create index
     df.set_index('datetime', inplace=True)
-    df.drop('MESS_DATUM', axis=1, inplace=True)
+
+    # rename columns
+    df.rename(columns={'TT_TU': 'D_Temp', 'RF_TU': 'D_Humi'}, inplace=True)
 
     # filter years
-    filter = (df.index.year >= start) & (df.index.year <= end)
+    span = (df.index.year >= start) & (df.index.year <= end)
+    df = df.loc[span, ['D_Temp', 'D_Humi']]
 
-    # filter columns
-    df = df.loc[filter, ['Temp', 'Humi']]
+    # drop erroneous data points
+    dropidx = df[df.D_Humi < 0].index
+    df.drop(dropidx, inplace=True)
+    df.loc[df['D_Humi'] < 0]
 
-    df.head()
+
     return df
