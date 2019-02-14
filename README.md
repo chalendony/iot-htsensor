@@ -9,14 +9,11 @@ Outline:
 
 Part 1) Setting up Your Python Environment
 
-Part 2) Considerations : Time Series Analytics
+Part 2) Modeling Time Series Data
 
-Part 3) Understand Characteristics of Humidity and Temperature (HT) Data
+Part 3) Analytics: Forecasting and Predicting 
 
-Part 4) Analytics: Forecasting and Predicting 
-
-Part 5) Next Steps
-
+TODO:
 * search optimal parameters
 * performance evaluation - inputs data set treated consistently
 * de-season data and implement statistical models that require seasonality to be removed
@@ -40,8 +37,6 @@ shut down kernels and restart jupyter notebook
 Troubleshooting
 Plotly jupyter notebook --NotebookApp.iopub_data_rate_limit=1.0e10
 Trusted Mode
-
-
 
 #### D. test setup
 
@@ -67,10 +62,15 @@ Trusted Mode
 | Simple Exponential Smoothing (SES)                                                    | uni   | n           | n     | 
 | Holt Winter’s Exponential Smoothing (HWES)                                            | uni   | y           | y     | 
 
-#### B. Comparative Analysis:  Univariate Models for Forecasting 
+#### B. Univariate Models for Forecasting 
   
 
 ![alt text](https://github.com/chalendony/iot-htsensor/blob/master/images/journal.pone.0194889.g002.PNG)
+
+
+#### C. Multivariate Models for Forecasting
+
+In many applications, such as Electricity Dataset, you have many similar time series across a set of cross-sectional units. For this type of application, you can benefit from training a single model jointly over all of the time serie - when dataset contains hundreds of related time series, the standard ARIMA and ETS methods may not be the best approach.
 
 
 ## PART 3: Explore and Understand Data
