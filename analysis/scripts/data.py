@@ -7,27 +7,27 @@ htsensor_columns = ['timestamp', 'Start Symbol', 'Zustand', 'Zeitstempel', 'Temp
                     ]
 
 
-def braunschweig():
+def braunschweig(url):
 
     # read data from file: parse the date after reading, just as a sanity check
-    home = pd.read_csv('/Users/stewarta/Documents/DATA/htsensor/raw.data', sep=';', decimal=',', names=htsensor_columns)
+    df = pd.read_csv(url, sep=';', decimal=',', names=htsensor_columns)
 
     # select relevant columns
-    home = home[['timestamp', 'Temp1', 'Temp2', 'Temp3', 'Temp4', 'Temp8', 'Humi1', 'Humi2', 'Humi3', 'Humi4']]
+    df = df[['timestamp', 'Temp1', 'Temp2', 'Temp3', 'Temp4', 'Temp8', 'Humi1', 'Humi2', 'Humi3', 'Humi4']]
 
     # parse date and insert as new column
-    home.insert(1, 'datetime',
-                pd.to_datetime(home.timestamp, errors='coerce'))  # If ‘coerce’, then invalid parsing will be set as NaT
+    df.insert(1, 'datetime',
+                pd.to_datetime(df.timestamp, errors='coerce'))  # If ‘coerce’, then invalid parsing will be set as NaT
 
     # set index
-    home.set_index('datetime', inplace=True)
+    df.set_index('datetime', inplace=True)
 
-    home.drop(columns='timestamp', inplace=True)
+    df.drop(columns='timestamp', inplace=True)
 
-    return home
+    return df
 
 
-def deutsches_wetter_dienst(start, end, url):
+def deutsches_wetter_dienst(url, start=2013, end=2017):
     '''
     Read and clean data from provided by Deutsches Wetter Deinst.
     :param start: first year
@@ -47,15 +47,15 @@ def deutsches_wetter_dienst(start, end, url):
     df.set_index('datetime', inplace=True)
 
     # rename columns
-    df.rename(columns={'TT_TU': 'D_Temp', 'RF_TU': 'D_Humi'}, inplace=True)
+    df.rename(columns={'TT_TU': 'Temp', 'RF_TU': 'Humi'}, inplace=True)
 
     # filter years
     span = (df.index.year >= start) & (df.index.year <= end)
-    df = df.loc[span, ['D_Temp', 'D_Humi']]
+    df = df.loc[span, ['Temp', 'Humi']]
 
     # drop erroneous data points
-    dropidx = df[df.D_Humi < 0].index
+    dropidx = df[df.Humi < 0].index
     df.drop(dropidx, inplace=True)
-    df.loc[df['D_Humi'] < 0]
+    df.loc[df['Humi'] < 0]
 
     return df
