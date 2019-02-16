@@ -1,17 +1,16 @@
-import numpy as np
 import pandas as pd
-import datetime
-from numpy import array
+
+htsensor_columns = ['timestamp', 'Start Symbol', 'Zustand', 'Zeitstempel', 'Temp1', 'Temp2', 'Temp3', 'Temp4', 'Temp5',
+                    'Temp6', 'Temp7', 'Temp8', 'Humi1', 'Humi2', 'Humi3', 'Humi4', 'Humi5', 'Humi6', 'Humi7', 'Humi8',
+                    'Temperatur Kombisensor', 'Humid Kombisensor', 'Windgeschwindigkeit', 'Niederschlag', 'Rain',
+                    'Stop Symbol'
+                    ]
 
 
 def braunschweig():
-    # read column headings
-    with open('/Users/stewarta/repos/iot-htsensor/data/columns.txt') as f:
-        cols = f.readlines()
-    cols = [ln.strip() for ln in cols]
 
     # read data from file: parse the date after reading, just as a sanity check
-    home = pd.read_csv('/Users/stewarta/Documents/DATA/htsensor/raw.data', sep=';', decimal=',', names=cols)
+    home = pd.read_csv('/Users/stewarta/Documents/DATA/htsensor/raw.data', sep=';', decimal=',', names=htsensor_columns)
 
     # select relevant columns
     home = home[['timestamp', 'Temp1', 'Temp2', 'Temp3', 'Temp4', 'Temp8', 'Humi1', 'Humi2', 'Humi3', 'Humi4']]
@@ -38,6 +37,7 @@ def deutsches_wetter_dienst(start, end, url):
     :return:
     '''
 
+
     df = pd.read_csv(url, sep=';')
 
     # parse date
@@ -57,6 +57,5 @@ def deutsches_wetter_dienst(start, end, url):
     dropidx = df[df.D_Humi < 0].index
     df.drop(dropidx, inplace=True)
     df.loc[df['D_Humi'] < 0]
-
 
     return df
