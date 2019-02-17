@@ -15,28 +15,20 @@ def braunschweig(url):
     # select relevant columns
     df = df[['timestamp', 'Temp1', 'Temp2', 'Temp3', 'Temp4', 'Temp8', 'Humi1', 'Humi2', 'Humi3', 'Humi4']]
 
-    # parse date and insert as new column
+    # create time series by parsing timestamp, and insert it as new column
     df.insert(1, 'datetime',
                 pd.to_datetime(df.timestamp, errors='coerce'))  # If ‘coerce’, then invalid parsing will be set as NaT
 
-    # set index
+    # set the date as the index
     df.set_index('datetime', inplace=True)
 
+    # remove the orginal time
     df.drop(columns='timestamp', inplace=True)
 
     return df
 
 
-def deutsches_wetter_dienst(url, start=2013, end=2017):
-    '''
-    Read and clean data from provided by Deutsches Wetter Deinst.
-    :param start: first year
-    :param end: last year
-    :param step: timestep for resampling
-    :param url: location data
-    :return:
-    '''
-
+def deutsches_wetterdienst(url, start=2013, end=2017):
 
     df = pd.read_csv(url, sep=';')
 
@@ -56,6 +48,5 @@ def deutsches_wetter_dienst(url, start=2013, end=2017):
     # drop erroneous data points
     dropidx = df[df.Humi < 0].index
     df.drop(dropidx, inplace=True)
-    df.loc[df['Humi'] < 0]
-
+    
     return df

@@ -110,7 +110,7 @@ def plotly_dwd(df):
 
 def plotly_home(df):
 
-    title = 'Home Observations in Braunschweig, Germany'
+    title = 'Residencial Observations in Braunschweig, Germany'
     trace_temp = go.Scatter(x=list(df.index),
                             y=list(df.Temp1),
                             name='Temperature1',
