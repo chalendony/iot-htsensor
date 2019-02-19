@@ -1,0 +1,14 @@
+build/
+dist/
+doc/_build
+
+__pycache__
+*.a
+*.so
+*.cpp
+*.pyc
+*.egg-info
+
+.tox/
+
+*~
